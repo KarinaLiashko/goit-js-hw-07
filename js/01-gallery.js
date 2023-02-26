@@ -26,7 +26,7 @@ gallery.addEventListener("click", onImgOriginalCard);
 function onImgOriginalCard(e) {
   e.preventDefault();
 
-    if (!e.target.nodeName !== "IMG") {
+    if (e.target.nodeName !== "IMG") {
         return;
     }
 
