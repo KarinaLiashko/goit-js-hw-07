@@ -31,7 +31,7 @@ function onImgOriginalCard(e) {
     }
 
 const instance = basicLightbox.create(`
-    <img src="${e.target.dataset.source}"width="800" height="600">`
+    <img src="${e.target.dataset.source}">`
 //   {
 //     onShow: () => document.addEventListener("keydown", onCloseModal),
 //     onClose: () => document.addEventListener("keydown", onCloseModal),
@@ -39,11 +39,11 @@ const instance = basicLightbox.create(`
 );
   instance.show();
 
-gallery.addEventListener("keydown", (e) => {
+  gallery.addEventListener("keydown", (e) => {
     if (e.code === "Escape") {
-        instance.close();
+      instance.close();
     }
-})
+  });
   
 //   function onCloseModal(event) {
 //     if (event.code === "Escape") {
