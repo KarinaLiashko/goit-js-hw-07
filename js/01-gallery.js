@@ -23,32 +23,35 @@ gallery.insertAdjacentHTML("beforeend", markup);
 
 gallery.addEventListener("click", onImgOriginalCard);
 
-function onImgOriginalCard(event) {
-    event.preventDefault()
+function onImgOriginalCard(e) {
+  e.preventDefault();
 
-    if (!event.target.nodeName !== "IMG") {
+    if (!e.target.nodeName !== "IMG") {
         return;
     }
 
 const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}"width="800" height="600"/>`,
-  {
-    onShow: (instance) => document.addEventListener("keydown", onCloseModal),
-    onClose: (instance) => document.addEventListener("keydown", onCloseModal),
-});
+    <img src="${e.target.dataset.source}"width="800" height="600">`
+//   {
+//     onShow: () => document.addEventListener("keydown", onCloseModal),
+//     onClose: () => document.addEventListener("keydown", onCloseModal),
+  // }
+);
   instance.show();
 
-  function onCloseModal(event) {
-    if (event.code === "Escape") {
-      instance.close();
-  }
-}
-}
-
-
-// gallery.addEventListener("keydown", (event) => {
+gallery.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+        instance.close();
+    }
+})
+  
+//   function onCloseModal(event) {
 //     if (event.code === "Escape") {
-//         instance.close();
-//     }
-// })
+//       instance.close();
+//   }
+// }
+}
+
+
+
 
